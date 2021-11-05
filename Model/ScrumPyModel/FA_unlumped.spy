@@ -1,0 +1,596 @@
+Structural()
+# FATTY ACID BIOSYNTHESIS 
+# The generic fatty acid biosynthesis pathway was extracted from EcoCyc
+# for generating C12, C14, C15, C16, C17, C18, C16.1, C17.1 and C18.1, as defined
+# for C. necator H16 in Park et al. 2011 paper. 
+
+
+# accA/accC
+# already in AutoReutro
+##"RXN0-5055":
+##    "ACETYL-COA" + "ATP" + "HCO3" -> "MALONYL-COA" + "ADP" + "Pi" + "PROTON"
+##    ~
+##    #PHYSIOL-LEFT-TO-RIGHT
+
+
+
+
+
+############# SATURATED FATTY ACIDS #####################
+"2.3.1.180-RXN":
+    "ACETYL-COA" + "MALONYL-ACP" + "PROTON"->"Acetoacetyl-ACPs" + "CO-A" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"MALONYL-COA-ACP-TRANSACYL-RXN":
+    "ACP" + "MALONYL-COA"->"MALONYL-ACP" + "CO-A"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+
+
+####### EVEN CHAIN FATTY ACID BIOSYNTHESIS ######
+
+
+"RXN-9663":
+    "Palmitoyl-ACPs" + "NAD"<-"2-Hexadecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"4.2.1.61-RXN":
+    "R-3-Hydroxypalmitoyl-ACPs"<>"WATER" + "2-Hexadecenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9540":
+    "R-3-Hydroxypalmitoyl-ACPs" + "NADP"<-"3-oxo-palmitoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9539":
+    "Myristoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-palmitoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9662":
+    "Myristoyl-ACPs" + "NAD"<-"Tetradec-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9537":
+    "R-3-hydroxymyristoyl-ACPs"<>"Tetradec-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9536":
+    "R-3-hydroxymyristoyl-ACPs" + "NADP"<-"3-oxo-myristoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9535":
+    "Dodecanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-myristoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9661":
+    "Dodecanoyl-ACPs" + "NAD"<-"Dodec-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9533":
+    "R-3-hydroxydodecanoyl-ACPs"<>"Dodec-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9532":
+    "R-3-hydroxydodecanoyl-ACPs" + "NADP"<-"3-oxo-dodecanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9531":
+    "Decanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-dodecanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9655":
+    "Beta-hydroxydecanoyl-ACPs"<>"Trans-D2-decenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9660":
+    "Decanoyl-ACPs" + "NAD"<-"Trans-D2-decenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9528":
+    "Beta-hydroxydecanoyl-ACPs" + "NADP"<-"3-oxo-decanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9527":
+    "Octanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-decanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"4.2.1.59-RXN":
+    "3-Hydroxy-octanoyl-ACPs"<>"2-Octenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9659":
+    "Octanoyl-ACPs" + "NAD"<-"2-Octenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9524":
+    "3-Hydroxy-octanoyl-ACPs" + "NADP"<-"3-Oxo-octanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9523":
+    "Hexanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-Oxo-octanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"4.2.1.58-RXN":
+    "Beta-3-hydroxybutyryl-ACPs"<>"WATER" + "Crotonyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9514":
+    "Beta-3-hydroxybutyryl-ACPs" + "NADP"<-"Acetoacetyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9516":
+    "Butanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-hexanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9518":
+    "R-3-hydroxyhexanoyl-ACPs" + "NADP"<-"3-oxo-hexanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9520":
+    "R-3-hydroxyhexanoyl-ACPs"<>"Hex-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9658":
+    "Hexanoyl-ACPs" + "NAD"<-"Hex-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9657":
+    "Butanoyl-ACPs" + "NAD"<-"Crotonyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+# C18
+
+"RXN-9635":
+    "Stearoyl-ACPs" + "NAD"<-"Octadec-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9634":
+    "R-3-hydroxystearoyl-ACPs"<>"Octadec-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9633":
+    "R-3-hydroxystearoyl-ACPs" + "NADP"<-"3-oxo-stearoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9632":
+    "Palmitoyl-ACPs" + "MALONYL-COA" + "PROTON"->"3-oxo-stearoyl-ACPs" + "CARBON-DIOXIDE" + "CO-A"
+    ~
+    #LEFT-TO-RIGHT
+
+
+
+#########################################################################
+
+
+
+
+
+######################## UNSATURATED FATTY ACIDS #########################
+
+
+"RXN-9558":
+    "cis-vaccen-2-enoyl-ACPs" + "NADH" + "PROTON"<>"Cis-vaccenoyl-ACPs" + "NAD"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9557":
+    "R-3-hydroxy-cis-vaccenoyl-ACPs"<>"cis-vaccen-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9556":
+    "R-3-hydroxy-cis-vaccenoyl-ACPs" + "NADP"<-"3-oxo-cis-vaccenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"2.3.1.179-RXN":
+    "Palmitoleoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-cis-vaccenoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10654":
+    "Cis-Delta5-dodecenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-cis-D7-tetradecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10655":
+    "3-hydroxy-cis-D7-tetraecenoyl-ACPs" + "NADP"<-"3-oxo-cis-D7-tetradecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10656":
+    "3-hydroxy-cis-D7-tetraecenoyl-ACPs"<>"Trans-D3-cis-D7-tetradecenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10657":
+    "Cis-Delta7-tetradecenoyl-ACPs" + "NAD"<-"Trans-D3-cis-D7-tetradecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10658":
+    "Cis-Delta7-tetradecenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-cis-D9-hexadecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10659":
+    "3-hydroxy-cis-D9-hexaecenoyl-ACPs" + "NADP"<-"3-oxo-cis-D9-hexadecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10660":
+    "3-hydroxy-cis-D9-hexaecenoyl-ACPs"<>"Trans-D3-cis-D9-hexadecenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10661":
+    "Palmitoleoyl-ACPs" + "NAD"<-"Trans-D3-cis-D9-hexadecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+
+"5.3.3.14-RXN":
+    "Trans-D2-decenoyl-ACPs"<>"Cis-delta-3-decenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2141":
+    "Cis-delta-3-decenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"b-Keto-cis-D5-dodecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2142":
+    "b-Hydroxy-cis-D5-dodecenoyl-ACPs" + "NADP"<-"b-Keto-cis-D5-dodecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN0-2144":
+    "b-Hydroxy-cis-D5-dodecenoyl-ACPs"<>"WATER" + "Trans-D3-cis-D5-dodecenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2145":
+    "NAD" + "Cis-Delta5-dodecenoyl-ACPs"<-"Trans-D3-cis-D5-dodecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+###################################################
+
+    
+
+####################### ODD CHAIN FATTY ACIDS ########################
+# Note that the reactions have the same BioCyc IDs as the even chain fatty acids but with suffix '_odd'
+# 
+
+
+# Acetyl-CoA from 2.3.1.180-RXN is replaced with propionyl-CoA, which results in odd number of carbons
+"2.3.1.180-RXN_odd":
+    "PROPIONYL-COA" + "MALONYL-ACP" + "PROTON" -> "3-oxo-valeryl-ACPs" + "CO-A" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9514_odd":
+    "3-hydroxypentanoyl-ACPs" + "NADP" <- "3-oxo-valeryl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"4.2.1.58-RXN_odd":
+    "3-hydroxypentanoyl-ACPs" <> "WATER" + "Pent-2-enoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9657_odd":
+    "Pentanoyl-ACPs" + "NAD" <- "Pent-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+    
+"RXN-9516_odd":
+    "Pentanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-heptanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9518_odd":
+    "R-3-hydroxyheptanoyl-ACPs" + "NADP"<-"3-oxo-heptanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9520_odd":
+    "R-3-hydroxyheptanoyl-ACPs"<>"Hept-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9658_odd":
+    "Heptanoyl-ACPs" + "NAD"<-"Hept-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9523_odd":
+    "Heptanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-Oxo-Septanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9524_odd":
+    "3-Hydroxy-Septanoyl-ACPs" + "NADP"<-"3-Oxo-Septanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"4.2.1.59-RXN_odd":
+    "3-Hydroxy-Septanoyl-ACPs"<>"2-Septenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT  
+    
+
+"RXN-9659_odd":
+    "Septanoyl-ACPs" + "NAD"<-"2-Septenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-9527_odd":
+    "Septanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-undecanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+
+"RXN-9528_odd":
+    "Beta-hydroxyundecanoyl-ACPs" + "NADP"<-"3-oxo-undecanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9655_odd":
+    "Beta-hydroxyundecanoyl-ACPs"<>"Trans-D2-undecenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9660_odd":
+    "Undecanoyl-ACPs" + "NAD"<-"Trans-D2-undecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+    
+
+"RXN-9531_odd":
+    "Undecanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-tridecanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9532_odd":
+    "R-3-hydroxytridecanoyl-ACPs" + "NADP" <- "3-oxo-tridecanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9533_odd":
+    "R-3-hydroxytridecanoyl-ACPs"<>"Tridec-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9661_odd":
+    "Tridecanoyl-ACPs" + "NAD" <- "Tridec-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+"RXN-9535_odd":
+    "Tridecanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-pentadecanoyl-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9536_odd":
+    "R-3-hydroxypentadecanoyl-ACPs" + "NADP"<-"3-oxo-pentadecanoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+
+"RXN-9537_odd":
+    "R-3-hydroxypentadecanoyl-ACPs" <> "Pentadec-2-enoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-9662_odd":
+    "Pentadecanoyl-ACPs" + "NAD"<-"Pentadec-2-enoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+"RXN-9539_odd":
+    "Pentadecanoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-heptadeca-ACPs" + "CARBON-DIOXIDE" + "ACP"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-9540_odd":
+    "R-3-Hydroxyheptadecanoyl-ACPs" + "NADP" <- "3-oxo-heptadeca-ACPs" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+ "4.2.1.61-RXN_odd":
+    "R-3-Hydroxyheptadecanoyl-ACPs" <> "WATER" + "2-Heptadecenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+    
+"RXN-9663_odd":
+    "Heptadecanoyl-ACPs" + "NAD" <- "2-Heptadecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+
+# C17.1
+
+
+
+"5.3.3.14-RXN_odd":
+    "Trans-D2-undecenoyl-ACPs"<>"Cis-delta-3-undecenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2141_odd":
+    "Cis-delta-3-undecenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"b-Keto-cis-D5-tridecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2142_odd":
+    "b-Hydroxy-cis-D5-tridecenoyl-ACPs" + "NADP"<-"b-Keto-cis-D5-tridecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN0-2144_odd":
+    "b-Hydroxy-cis-D5-tridecenoyl-ACPs"<>"WATER" + "Trans-D3-cis-D5-tridecenoyl-ACPs"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN0-2145_odd":
+    "NAD" + "Cis-Delta5-tridecenoyl-ACPs"<-"Trans-D3-cis-D5-tridecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+
+"RXN-10654_odd":
+    "Cis-Delta5-tridecenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-cis-D7-pentadecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10655_odd":
+    "3-hydroxy-cis-D7-pentaecenoyl-ACPs" + "NADP"<-"3-oxo-cis-D7-pentadecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10656_odd":
+    "3-hydroxy-cis-D7-pentaecenoyl-ACPs"<>"Trans-D3-cis-D7-pentadecenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10657_odd":
+    "Cis-Delta7-pentadecenoyl-ACPs" + "NAD"<-"Trans-D3-cis-D7-pentadecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10658_odd":
+    "Cis-Delta7-pentadecenoyl-ACPs" + "MALONYL-ACP" + "PROTON"->"3-oxo-cis-D9-heptadecenoyl-ACPs" + "ACP" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10659_odd":
+    "3-hydroxy-cis-D9-heptaecenoyl-ACPs" + "NADP"<-"3-oxo-cis-D9-heptadecenoyl-ACPs" + "NADPH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+"RXN-10660_odd":
+    "3-hydroxy-cis-D9-heptaecenoyl-ACPs"<>"Trans-D3-cis-D9-heptadecenoyl-ACPs" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-10661_odd":
+    "Heptadecoleoyl-ACPs" + "NAD" <- "Trans-D3-cis-D9-heptadecenoyl-ACPs" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+
+
