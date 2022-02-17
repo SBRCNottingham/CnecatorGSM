@@ -4,3 +4,4 @@ Supplementary code and files for the manuscript "A genome-scale metabolic model 
 
 
 [ScrumPyModel_construction_pipeline.pdf](https://github.com/SBRCNottingham/CnecatorGSM/files/8088298/ScrumPyModel_construction_pipeline.pdf)
+![ScrumPy construction pipeline](/ScrumPyModel_construction_pipeline.pdf "ScrumPy construction pipeline")
