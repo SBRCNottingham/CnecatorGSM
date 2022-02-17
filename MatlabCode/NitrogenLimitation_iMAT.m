@@ -1,6 +1,6 @@
 
 
-reac_expression_data = xlsread('Data/CnecatorH16_ReactionExpression.xlsx');
+reac_expression_data = xlsread('CnecatorH16_ReactionExpression.xlsx');
 exp_f26_RPKM = reac_expression_data(:,2);
 exp_f16_RPKM = reac_expression_data(:,1);
 
