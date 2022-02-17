@@ -1,0 +1,39 @@
+version: "0.1"
+medium:
+  path: "media/"
+  definitions:
+    m9_fru:
+      filename: "m9_fru.csv"
+    m9_succinate:
+      filename: "m9_succinate.csv"
+    m9_formate:
+      filename: "m9_formate.csv"
+    m9:
+      filename: "m9.csv"
+essentiality:
+  path: "essentiality/"
+  experiments:
+    fructose_tradis:
+      filename: "knockouts_tradis.csv"
+      medium: m9_fru
+      label: "Gene essentiality tradis - fructose"
+    fructose_tn_seq:
+      filename: "knockouts_tnseq_fru.csv"
+      medium: m9_fru
+      label: "Gene essentiality tnseq - fructose"
+    succinate_tnseq:
+      filename: "knockouts_tnseq_suc.csv"
+      medium: m9_succinate
+      label: "Gene essentiality tnseq - succinate"  
+    formate_tn_seq:
+      filename: "knockouts_tnseq_for.csv"
+      medium: m9_formate
+      label: "Gene essentiality tnseq - formate" 
+growth:
+  path: "growth/"
+  experiments:
+    growth_viability_carbon:
+      filename: "carbon_sources_utilisation.xlsx"
+      medium: m9
+      objective: R_Biomass
+      label: "Growth viability on carbon source"    
