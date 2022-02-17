@@ -1,0 +1,550 @@
+Structural()
+
+
+
+
+"GLUCOSE-1-DEHYDROGENASE-NADP+-RXN":
+	1 "NADP" + 1 "GLC" <> 1 "NADPH" + 1 "GLC-D-LACTONE" + 1 "PROTON"
+	~
+
+"GLYOCARBOLIG-RXN":
+   "PROTON" + 2  "GLYOX"->"CARBON-DIOXIDE" + "TARTRONATE-S-ALD"
+   ~
+
+"RXN-5284":
+    "131-OXO-MAGNESIUM-PROTOPORPHYRIN-IX-13-M" + "OXYGEN-MOLECULE" + "NADPH"->"DIVINYL-PROTOCHLOROPHYLLIDE-A" + "NADP" + 2  "WATER"
+    ~
+
+"RXN-5282":
+    "MG-PROTOPORPHYRIN-MONOMETHYL-ESTER" + "OXYGEN-MOLECULE" + "NADPH" + "PROTON"->"13-HYDROXY-MAGNESIUM-PROTOPORP" + "NADP" + "WATER"
+    ~
+
+
+
+"RXN-5283":
+    "13-HYDROXY-MAGNESIUM-PROTOPORP" + "NADPH" + "PROTON" + "OXYGEN-MOLECULE" -> "131-OXO-MAGNESIUM-PROTOPORPHYRIN-IX-13-M" + "NADP" + 2  "WATER"
+    ~
+
+"RXN-7593":
+    "4-IMIDAZOLONE-5-PROPIONATE" + "OXYGEN-MOLECULE" + "WATER" + 2  "PROTON" -> "4-OXOGLUTARAMATE" + "AMMONIUM" + "FORMATE"
+    ~
+
+"RXN-12614":
+    "GLY" + "OXYGEN-MOLECULE" -> "CPD-12279" + "HYDROGEN-PEROXIDE" + "PROTON"
+    ~
+
+"DUTP-PYROP-RXN":
+    "DUTP" + "WATER"->"PROTON" + "DUMP" + "PPI"
+    ~
+
+# causes cycle producing ATP with CDPKIN-RXN, has gibbs free energy = -102.6
+"RXN-12195":
+	"CTP" + "WATER" -> "Pi" + "CDP" + "PROTON"
+	~
+
+
+# gibbs energy = -45 (and checked in published model)
+"CATAL-RXN":
+    2 "HYDROGEN-PEROXIDE" -> 2 "WATER" + "OXYGEN-MOLECULE"
+    ~
+
+"RXN-3483":
+    "CPD-3344" + "OXYGEN-MOLECULE"->"PROTON" + "PYRUVATE" + "NITRITE"
+    ~
+
+# gibbs = -71.3
+"RXN66-1":
+    "ETOH" + "HYDROGEN-PEROXIDE"->2 "WATER" + "ACETALD"
+    ~
+
+# irrerversible in E. coli - generates ATP
+"PEPSYNTH-RXN":
+    "WATER" + "PYRUVATE" + "ATP" -> 2 "PROTON" + "Pi" + "PHOSPHO-ENOL-PYRUVATE" + "AMP"
+    ~
+
+
+# irreversible in brenda - internal cycle producing ATP
+"NITRATE-REDUCTASE-NADH-RXN":
+    "PROTON" + "NITRATE" + "NADH" -> "NITRITE" + "WATER" + "NAD"
+    ~
+
+# not in BRENDA, irreversible in biocyc
+##"RXN-12541":
+##    2 "OXYGEN-MOLECULE" + 2  "FE+2"<>2 "SUPER-OXIDE" + 2  "FE+3"
+##    ~
+
+"SUCCINATE-SEMIALDEHYDE-DEHYDROGENASE-RXN":
+    "SUCC-S-ALD" + "WATER" + "NAD" -> "SUC" + "NADH" + 2  "PROTON"
+    ~
+
+"RXN66-3":
+	"NAD" + "ACETALD" + "WATER" -> "NADH" + "ACET" + 2.0 "PROTON"
+	~
+
+"GARTRANSFORMYL2-RXN":
+	"FORMATE" + "5-PHOSPHO-RIBOSYL-GLYCINEAMIDE" + "ATP" -> "Pi" + "ADP" + "5-P-RIBOSYL-N-FORMYLGLYCINEAMIDE" + "PROTON"
+	~
+
+"RXN-10981":
+    "Acceptor" + "ASCORBATE" + 2  "PROTON"->"Donor-H2" + "CPD-318"
+    ~
+
+"RXN-3521":
+    2 "ASCORBATE" + "HYDROGEN-PEROXIDE" + 2  "PROTON"->2 "CPD-318" + 2  "WATER"
+    ~
+
+"RXN0-6373":
+    "Ubiquinones" + "Glucopyranose"->"Ubiquinols" + "GLC-D-LACTONE"
+    ~
+
+"GLUTDECARBOX-RXN":
+    "PROTON" + "GLT"->"CARBON-DIOXIDE" + "4-AMINO-BUTYRATE"
+    ~
+
+"RXN0-6491":
+    "Ubiquinones" + "DI-H-OROTATE"->"Ubiquinols" + "OROTATE"
+    ~
+
+"MALATE-DEHYDROGENASE-ACCEPTOR-RXN":
+    "MAL" + "Ubiquinones"->"OXALACETIC_ACID" + "Ubiquinols"
+    ~
+
+"PPPGPPHYDRO-RXN":
+    "WATER" + "GDP-TP"->"PROTON" + "Pi" + "GUANOSINE-5DP-3DP"
+    ~
+    
+"ACETYLORNDEACET-RXN": 
+	"N-ALPHA-ACETYLORNITHINE" +"WATER" -> "L-ORNITHINE" + "ACET"
+	~
+
+"SERINE-O-ACETTRAN-RXN":
+    "SER" + "ACETYL-COA"->"ACETYLSERINE" + "CO-A"
+    ~
+    
+"3.5.2.14-RXN":
+    2 "WATER" + "N-METHYLHYDANTOIN" + "ATP"->2 "PROTON" + "CARBAMOYL-SARCOSINE" + "Pi" + "ADP"
+    ~
+
+"N-CARBAMOYLSARCOSINE-AMIDASE-RXN":
+    2 "PROTON" + "CARBAMOYL-SARCOSINE" + "WATER"->"AMMONIUM" + "CARBON-DIOXIDE" + "SARCOSINE"
+    ~
+    
+"GKI-RXN":
+    "GLYCERATE" + "ATP"->"PROTON" + "2-PG" + "ADP"
+    ~
+
+"RXN-2902":
+    "MALONATE-S-ALD" + "CO-A" + "NAD"->"ACETYL-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+
+"4.2.1.41-RXN":
+    "PROTON" + "5-KETO-4-DEOXY-D-GLUCARATE"->"CARBON-DIOXIDE" + "WATER" + "CPD-654"
+    ~
+
+"RXN-15046":
+    "CPD-15924" + "NADPH" + "PROTON"->"L-1-LYSOPHOSPHATIDATE" + "NADP"
+    ~
+    
+"RXNI-3":	# reactions involving quinones are generally irreversible
+	"MAL" + "Menaquinones" -> "Menaquinols" + "OXALACETIC_ACID"
+	~
+
+"MALATE--COA-LIGASE-RXN":
+    "MAL" + "CO-A" + "ATP"->"Pi" + "CPD-208" + "ADP"
+    ~
+
+"FORMYLTHFDEFORMYL-RXN":
+    "WATER" + "10-FORMYL-THF"->"PROTON" + "THF" + "FORMATE"
+    ~
+
+"GLY3KIN-RXN":
+    "GLYCERATE" + "ATP"->"PROTON" + "G3P" + "ADP"
+    ~
+
+"2OXOGLUTARATEDEH-RXN":
+    "2-KETOGLUTARATE" + "CO-A" + "NAD"->"SUC-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+	
+"RXN-15125":
+    "SER"-> "2-AMINOACRYLATE" + "WATER"
+    ~
+
+"RXN-2802":
+    "ACETYL-COA" + 2  "WATER"->5 "PROTON" + "GLYOX" + "CO-A"
+    ~
+    
+"PYRUVDEH-RXN":
+    "PYRUVATE" + "CO-A" + "NAD"->"ACETYL-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+
+"RXN-13570":
+	"HYDROXYLAMINE" + "Oxidized-cytochromes" -> "NITRIC-OXIDE" + 3.0 "PROTON" + "Reduced-cytochromes"
+	~
+	
+"1.2.1.2-RXN": # could need changing - evidence of both irreversible and reversible in BRENDA
+	"FORMATE" + "NAD" -> "NADH" + "CARBON-DIOXIDE"
+	~
+
+"FHLMULTI-RXN":
+    "PROTON" + "FORMATE"->"CARBON-DIOXIDE" + "HYDROGEN-MOLECULE"
+    ~
+
+"4.1.1.77-RXN":
+    "CPD-8742" + "PROTON"->"OXOPENTENOATE" + "CARBON-DIOXIDE"
+    ~
+
+"FORMATE-DEHYDROGENASE-NADP+-RXN":
+	"FORMATE" + "NADP" <> "NADPH" + "CARBON-DIOXIDE"
+	~
+	
+"GCVMULTI-RXN":
+	"GLY" + "NAD" + "THF" -> "METHYLENE-THF" + "NADH" + "CARBON-DIOXIDE" + "AMMONIUM"
+	~
+
+# changed due to enzyme subset inconsistency and checked in brenda
+##"1.1.1.292-RXN":
+##    "CPD-9446" + "NAD(P)"<>"15-ANHYDRO-D-FRUCTOSE" + "NAD(P)H" + "PROTON"
+##    ~
+
+"RXN-12994":
+    "CPD-14422" + "NAD(P)H" + "PROTON"<>"CPD-14419" + "NAD(P)"
+    ~
+
+"MANNPGUANYLTRANGDP-RXN":
+    "PROTON" + "MANNOSE-1P" + "GDP"<>"GDP-MANNOSE" + "Pi"
+    ~
+
+"GLUCURONATE-REDUCTASE-RXN":
+    "L-GULONATE" + "NADP"<>"CPD-15530" + "NADPH" + "PROTON"
+    ~
+
+"RXN-8783":
+    "L-GULONO-1-4-LACTONE" + "WATER"<>"L-GULONATE" + "PROTON"
+    ~
+
+# 
+"RXN-11511":
+    "CPD-12475" + "OXYGEN-MOLECULE" + "NAD(P)H" + "PROTON"<>"CPD-12476" + "NAD(P)"
+    ~
+
+# changed according to metacyc (expensive to use nitrogen gas in bug
+"RXN-11489":
+	2 "NITRIC-OXIDE" -> 1 "OXYGEN-MOLECULE" + 1 "NITROGEN-MOLECULE"
+	~
+
+"PEPCARBOXYKIN-RXN":
+	1 "OXALACETIC_ACID" + 1 "ATP" -> 1 "PHOSPHO-ENOL-PYRUVATE" + 1 "CARBON-DIOXIDE" + 1 "ADP"
+	~
+
+"MALIC-NADP-RXN":
+	1 "NADP" + 1 "MAL" -> 1 "NADPH" + 1 "PYRUVATE" + 1 "CARBON-DIOXIDE"
+	~
+
+
+"PROPIONYL-COA-CARBOXY-RXN":
+	1 "PROPIONYL-COA" + 1 "HCO3" + 1 "ATP" -> 1 "PROTON" + 1 "Pi" + 1 "D-METHYL-MALONYL-COA" + 1 "ADP"
+	~
+
+"RXN-12541":
+	2 "OXYGEN-MOLECULE" + 2 "FE+2" -> 2 "FE+3" + 2 "SUPER-OXIDE"
+	~
+
+"SUPEROX-DISMUT-RXN":
+	2 "PROTON" + 2 "SUPER-OXIDE" -> 1 "OXYGEN-MOLECULE" + 1 "HYDROGEN-PEROXIDE"
+	~
+
+##"L-GLN-FRUCT-6-P-AMINOTRANS-RXN":
+##	1 "FRUCTOSE-6P" + 1 "GLN" -> 1 "D-GLUCOSAMINE-6-P" + 1 "GLT"
+##	~
+##
+##"GLUCOSAMINE-6-P-DEAMIN-RXN":
+##	1 "WATER" + 1 "D-GLUCOSAMINE-6-P" -> 1 "FRUCTOSE-6P" + 1 "AMMONIUM"
+##	~
+
+# ubiquinones acting as electron acceptors are usually irreversible
+"SHIKIMATE-PQQ-RXN":
+    "SHIKIMATE" + "Ubiquinones" -> "3-DEHYDRO-SHIKIMATE" + "Ubiquinols"
+    ~
+"RXN-14903":
+    1 "PRO" + 1 "Ubiquinones" -> 1 "Ubiquinols" + 1 "L-DELTA1-PYRROLINE_5-CARBOXYLATE" + 1 "PROTON"
+    ~
+    
+ # made irreversible due to growth with 2-keto gene on fructose (no evidence it's reversible in BRENDA)
+#"TRANSALDOL-RXN":
+#    1 "GAP" + 1 "D-SEDOHEPTULOSE-7-P" -> 1 "FRUCTOSE-6P" + 1 "ERYTHROSE-4P"
+#    ~
+
+"ISOCIT-CLEAV-RXN":
+	1 "THREO-DS-ISO-CITRATE" -> 1 "SUC" + 1 "GLYOX"
+	~
+
+
+"GLUCOSAMINE-6-P-DEAMIN-RXN":
+	1 "WATER" + 1 "D-GLUCOSAMINE-6-P" -> 1 "FRUCTOSE-6P" + 1 "AMMONIUM"
+	~
+
+"RXN0-6259":
+	1 "PROTOPORPHYRINOGEN" + 3 "Menaquinones" -> 3 "Menaquinols" + 1 "PROTOPORPHYRIN_IX"
+	~
+
+"1.1.1.8-RXN":
+	1 "GLYCEROL-3P" + 1 "NAD" <> 1 "NADH" + 1 "DIHYDROXY-ACETONE-PHOSPHATE" + "PROTON"
+	~
+
+"GLYC3PDEHYDROGBIOSYN-RXN":
+	1 "NAD(P)" + 1 "GLYCEROL-3P" <- 1 "NAD(P)H" + 1 "DIHYDROXY-ACETONE-PHOSPHATE" + "PROTON"
+	~
+
+"RXN0-5260":
+	1 "Ubiquinones" + 1 "GLYCEROL-3P" -> 1 "Ubiquinols" + 1 "DIHYDROXY-ACETONE-PHOSPHATE"
+	~
+
+"GLUTAMATE-N-ACETYLTRANSFERASE-RXN":
+    "GLT" + "N-ALPHA-ACETYLORNITHINE" -> "ACETYL-GLU" + "L-ORNITHINE"
+    ~
+
+"1.1.1.209-RXN":
+    "ANDROSTERONE" + "NAD(P)" -> "CPD-342" + "NAD(P)H" + "PROTON"
+    ~
+
+"1.1.1.51-RXN":
+    "TESTOSTERONE" + "NAD(P)" -> "ANDROST4ENE" + "NAD(P)H" + "PROTON"
+    ~
+
+
+# Freddi suggested only can go in one direction in c. necator since all D-alanine comes from alpha alanine
+"ALARACECAT-RXN":
+	1 "L-ALPHA-ALANINE" -> 1 "D-ALANINE"
+	~
+
+
+
+"RXN-6383":
+	1 "3-HYDROXY-PROPIONYL-COA" <> 1 "ACRYLYL-COA"
+	~
+
+"GLYCEROL-KIN-RXN":
+	1 "GLYCEROL" + 1 "ATP" -> 1 "GLYCEROL-3P" + 1 "PROTON" + 1 "ADP"
+	~
+
+"RXN-9718":
+	1 "ACETOIN" + 1 "CO-A" + 1 "NAD" -> 1 "NADH" + 1 "PROTON" + 1 "ACETYL-COA" + 1 "ACETALD"
+	~
+
+	
+"GLUTATHIONE-PEROXIDASE-RXN":
+	2 "GLUTATHIONE" + 1 "HYDROGEN-PEROXIDE" -> 2 "WATER" + 1 "OXIDIZED-GLUTATHIONE"
+	~
+
+##"GCVMULTI-RXN":
+##	1 "GLY" + 1 "NAD" + 1 "THF" <> 1 "METHYLENE-THF" + 1 "NADH" + 1 "CARBON-DIOXIDE" + 1 "AMMONIUM"
+##	~
+
+"GUANINE-DEAMINASE-RXN":
+	1 "WATER" + 1 "PROTON" + 1 "GUANINE" -> 1 "XANTHINE" + 1 "AMMONIUM"
+	~
+
+
+
+
+"1.18.1.2-RXN":
+	2.0 "Reduced-ferredoxins" + 1.0 "PROTON" + 1.0 "NADP" <> 1.0 "NADPH" + 2.0 "Oxidized-ferredoxins"
+	~
+
+
+"THREONINE-ALDOLASE-RXN":
+	1 "THR" -> 1 "GLY" + 1 "ACETALD"
+	~
+
+"ALANINE-DEHYDROGENASE-RXN":
+	1 "WATER" + 1 "L-ALPHA-ALANINE" + 1 "NAD" <> 1 "NADH" + 1 "PYRUVATE" + 1 "PROTON" + 1 "AMMONIUM"
+	~
+
+
+"GART-RXN":
+	1 "10-FORMYL-THF" + 1 "5-PHOSPHO-RIBOSYL-GLYCINEAMIDE" -> 1 "THF" + 1 "PROTON" + 1 "5-P-RIBOSYL-N-FORMYLGLYCINEAMIDE"
+	~
+
+# checked in published and ecoli model
+"RXN-14260":
+	"MALTOSE" + "MALTOTETRAOSE" -> "GLC" + "MALTOPENTAOSE" 
+	~
+
+# proteomics paper suggests pep carboxykinase acts as TCA replenisher
+##"4.1.1.32-RXN":
+##	1.0 "GTP" + 1.0 "OXALACETIC_ACID" <> 1.0 "GDP" + 1.0 "CARBON-DIOXIDE" + 1.0 "PHOSPHO-ENOL-PYRUVATE"
+##	~
+
+"DCTP-DEAM-RXN":
+	1 "WATER" + 1 "PROTON" + 1 "DCTP" -> 1 "DUTP" + 1 "AMMONIUM"
+	~
+
+
+
+"RXN0-5293-(NAD)":
+	"WATER" + "NAD" + "SUCC-S-ALD" -> "NADH" + "SUC" + 2.0 "PROTON"
+	~
+
+"RXN-9510":
+	"FMNH2" + "NAD" <- "FMN" + "NADH" + 1.0 "PROTON"
+	~
+
+"GLYCERATE-DEHYDROGENASE-RXN":
+	1.0 "NAD" + 1.0 "GLYCERATE" <- 1.0 "NADH" + 1.0 "PROTON" + 1.0 "OH-PYR"
+	~
+
+"RXN0-5224":
+	1.0 "HCO3" + 1.0 "PROTON" <> 1.0 "CARBON-DIOXIDE" + 1.0 "WATER"
+	~
+
+
+"RXN-12560":
+	1 "NADP" + 1 "CPD-13533" <> 1 "NADPH" + 1 "CPD-13534" + 1 "PROTON"
+	~
+
+"RXN-7607":
+	1 "WATER" + 1 "IMP" -> 1 "INOSINE" + 1 "Pi"
+	~
+
+"RXN0-1134":
+	1.0 "Pyruvate-dehydrogenase-lipoate" + 1.0 "PYRUVATE" + 1.0 "PROTON" -> 1.0 "CARBON-DIOXIDE" + 1.0 "Pyruvate-dehydrogenase-acetylDHlipoyl"
+	~
+
+"RXN-12583":
+	1.0 "PYRUVATE" + 1.0 "PROTON" + 1.0 "THIAMINE-PYROPHOSPHATE" -> 1.0 "CARBON-DIOXIDE" + 1.0 "2-ALPHA-HYDROXYETHYL-THPP"
+	~
+
+"L-LACTATE-DEHYDROGENASE-RXN":
+	1.0 "NAD" + 1.0 "L-LACTATE" <> 1.0 "PYRUVATE" + 1.0 "NADH" + 1.0 "PROTON"
+	~
+
+"DLACTDEHYDROGNAD-RXN":
+	1.0 "NAD" + 1.0 "D-LACTATE" <> 1.0 "PYRUVATE" + 1.0 "NADH" + 1.0 "PROTON"
+	~
+
+"RXN-14970":
+	1.0 "SUC" + 1.0 "Ubiquinones" -> 1.0 "Ubiquinols" + 1.0 "FUM"
+	~
+
+"RXN-12561":
+	1.0 "ACETYL-COA" + 1.0 "PROPIONYL-COA" <- 1.0 "CO-A" + 1.0 "CPD-13534"
+	~
+
+"HYPOXANPRIBOSYLTRAN-RXN":
+	1.0 "PPI" + 1.0 "IMP" <- 1.0 "PRPP" + 1.0 "HYPOXANTHINE"
+	~
+
+
+
+
+"BRANCHED-CHAINAMINOTRANSFERLEU-RXN":
+	1.0 "2-KETOGLUTARATE" + 1.0 "LEU" <> 1.0 "2K-4CH3-PENTANOATE" + 1.0 "GLT"
+	~
+
+"RXN-7800":
+	1.0 "CPD-7100" + 1.0 "PROTON" -> 1.0 "2K-4CH3-PENTANOATE" + 1.0 "CARBON-DIOXIDE"
+	~
+
+
+"RXN-8899":
+	1.0 "WATER" + 1.0 "2-AMINOACRYLATE" -> 1.0 "PYRUVATE" + 1.0 "AMMONIUM"
+	~
+
+"3-ISOPROPYLMALDEHYDROG-RXN":
+	1.0 "NAD" + 1.0 "2-D-THREO-HYDROXY-3-CARBOXY-ISOCAPROATE" -> 1.0 "CPD-7100" + 1.0 "NADH" + 1.0 "PROTON"
+	~
+
+
+"RXN-13162":
+	1.0 "NAD(P)H" + 2.0 "FARNESYL-PP" + 1.0 "PROTON" -> 2.0 "PPI" + 1.0 "NAD(P)" + 1.0 "SQUALENE"
+	~
+
+"HEMN-RXN":
+	2.0 "S-ADENOSYLMETHIONINE" + 1.0 "COPROPORPHYRINOGEN_III" -> 2.0 "CH33ADO" + 2.0 "CARBON-DIOXIDE" + 1.0 "PROTOPORPHYRINOGEN" + 2.0 "MET"
+	~
+
+"HISTALDEHYD-RXN":
+	1.0 "NAD" + 1.0 "HISTIDINAL" + 1.0 "WATER" -> 1.0 "HIS" + 1.0 "NADH" + 2.0 "PROTON"
+	~
+
+"DGDPKIN-RXN":
+	1.0 "DGDP" + 1.0 "ATP" -> 1.0 "DGTP" + 1.0 "ADP"
+	~
+
+"GDPKIN-RXN":
+	1.0 "GDP" + 1.0 "ATP" -> 1.0 "GTP" + 1.0 "ADP"
+	~
+
+
+"RXN-8447":
+	1.0 "2-AMINO-3-OXO-4-PHOSPHONOOXYBUTYRATE" + 1.0 "PROTON" -> 1.0 "1-AMINO-PROPAN-2-ONE-3-PHOSPHATE" + 1.0 "CARBON-DIOXIDE"
+	~
+
+"ORNITHINE-CYCLODEAMINASE-RXN":
+	1.0 "L-ORNITHINE" -> 1.0 "PRO" + 1.0 "AMMONIUM"
+	~
+
+"PEPDEPHOS-RXN":
+	1.0 "PYRUVATE" + 1.0 "ATP" <- 1.0 "PROTON" + 1.0 "ADP" + 1.0 "PHOSPHO-ENOL-PYRUVATE"
+	~
+
+
+"ADPREDUCT-RXN":
+	1.0 "Ox-Thioredoxin" + 1.0 "WATER" + 1.0 "DADP" <- 1.0 "Red-Thioredoxin" + 1.0 "ADP"
+	~
+
+
+"RXN-14117":
+	1.0 "GTP" + 1.0 "PYRUVATE" <- 1.0 "GDP" + 1.0 "PROTON" + 1.0 "PHOSPHO-ENOL-PYRUVATE"
+	~
+
+"RXN-15127":
+	1.0 "WATER" + 1.0 "CPD-16015" -> 1.0 "PYRUVATE" + 1.0 "AMMONIUM"
+	~
+
+
+
+"RXN-14192":
+	1.0 "PYRUVATE" + 1.0 "DATP" <- 1.0 "PROTON" + 1.0 "DADP" + 1.0 "PHOSPHO-ENOL-PYRUVATE"
+	~
+
+"RXN-14207":
+	1.0 "PYRUVATE" + 1.0 "DGTP" <- 1.0 "DGDP" + 1.0 "PROTON" + 1.0 "PHOSPHO-ENOL-PYRUVATE"
+	~
+
+"GLUCOSE-1-DEHYDROGENASE-RXN":
+	1.0 "NAD" + 1.0 "GLC" <> 1.0 "GLC-D-LACTONE" + 1.0 "NADH" + 1.0 "PROTON"
+	~
+
+"RXN66-545":
+	1.0 "4-HYDROXY-L-PROLINE" + 1.0 "FAD" <> 1.0 "FADH2" + 1.0 "PYRROLINE-HYDROXY-CARBOXYLATE" + 1.0 "PROTON"
+	~
+
+"RXN0-6973":
+	1.0 "CPD-3744" + 1.0 "FMNH2" + 1.0 "OXYGEN-MOLECULE" -> 1.0 "BUTANAL" + 1.0 "PROTON" + 1.0 "WATER" + 1.0 "SO3" + 1.0 "FMN"
+	~
+
+"RXN-15124":
+	1.0 "2-AMINOACRYLATE" -> 1.0 "CPD-16015"
+	~
+
+"RXN-11667":
+	1.0 "S-3-HYDROXYBUTANOYL-COA" <- 1.0 "CROTONYL-COA" + 1.0 "WATER"
+	~
+
+
+"RXN-11662":
+    1.0 "NAD" + 1.0 "S-3-HYDROXYBUTANOYL-COA" -> 1.0 "NADH" + 1.0 "PROTON" + 1.0 "ACETOACETYL-COA"
+    ~
+
+
+
+
+
+
+
+
+
+
+
+

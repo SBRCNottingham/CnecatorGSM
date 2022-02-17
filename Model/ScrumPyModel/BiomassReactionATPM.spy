@@ -1,0 +1,158 @@
+# BIOMASS AND ATP MAINTENANCE EQUATIONS
+# We include a lumped biomass equation using the composition used in the previously
+# published model RehMBEL1391 (Park et al. 2011). However, we have modified the protein and DNA composition to
+# that of the E. coli composition. 
+
+# The growth associated maintenance (GAM) is included in the lumped biomass equation
+# The non-growth associated maintenance (NGAM) is included as a separate reaction (ATPM)
+# The parameters used for GSM and NGAM are taken from the previously published model RehMBEL1391.
+
+
+Structural()
+
+
+
+"Biomass":
+    0.2508 "ARG" + 0.20295 "ASN" + 30.2922 "ATP" + 0.0538687561 "CARBS" + 3.4592723045332E-005 "CLPN_C12" + 0.0020921778 "CLPN_C14"
+    + 0.000030099 "CLPN_C15" + 0.0012405406 "CLPN_C16" + 0.0008561755 "CLPN_C16_1" + 2.77001160042504E-005 "CLPN_C17"
+    + 0.000032503 "CLPN_C17_1" + 6.65964199887503E-005 "CLPN_C18" + 0.0005580437 "CLPN_C18_1" + 0.003929263 "CO-A" + 0.1996 "CTP"
+    + 0.06325 "CYS" + 0.017484 "DATP" + 0.032673999999999995 "DCTP" + 0.032673999999999995 "DGTP" + 0.003828807 "FAD" + 0.006617783 "FMN"
+    + 0.2816 "GLN" + 0.2816 "GLT" + 0.62425 "GLY" + 0.15 "GTP" + 0.12265 "HIS" + 0.1683 "ILE" + 0.66605 "L-ALPHA-ALANINE" + 0.20295 "L-ASPARTATE" + 0.2871 "LEU"
+    + 0.0134366 "KDO2-LIPID-A" + 0.10395 "LYS" + 0.08745 "MET" + 0.004528835 "NAD" + 0.00405194 "NADP" + 0.0218342439 "PEPTIDOGLYCAN"
+    + 0.0003415286 "PE_C12" + 0.0207076229 "PE_C14" + 0.000298235 "PE_C15" + 0.0123041951 "PE_C16" + 0.008490722 "PE_C16_1"
+    + 0.0002749953 "PE_C17" + 0.0003226345 "PE_C17_1" + 0.00066170685 "PE_C18" + 0.0055441039 "PE_C18_1"
+    + 0.0001033212 "PG_C12" + 00.0062919047 "PG_C14" + 0.00009079 "PG_C15" + 0.0037522755 "PG_C16"
+    + 0.0025886919 "PG_C16_1" + 8.39983109619632E-005 "PG_C17" + 9.85276720416112E-005 "PG_C17_1" + 0.0002024244 "PG_C18"
+    + 0.0016956565 "PG_C18_1" + 0.2365 "PHE" + 0.004882177 "PROTOHEME" + 0.54835 "PRO" + 0.01213877 "PYRIDOXAL_PHOSPHATE" + 0.23155 "SER" + 0.006765696 "THF"
+    + 0.007104123 "THIAMINE-PYROPHOSPHATE" + 0.4202 "THR" + 0.0044 "TRP" + 0.017484 "TTP" + 0.1221 "TYR" + 0.1494 "UTP" + 0.00412598 "Ubiquinones"
+    + 0.37785 "VAL" + 24.88215 "WATER" -> 30.166 "ADP" + 30.166 "PROTON" + 30.166 "Pi" + 0.7525516 "PPI"
+    ~
+
+
+"ATPM":
+    "ATP" + "WATER" -> "ADP" + "Pi" + "PROTON"
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
