@@ -1,0 +1,134 @@
+# ELECTRON TRANSPORT CHAIN (ETC)
+# The ETC reactions involve proton pumping reactions, such that protons from the cytoplasm are translocated across the cell
+# membrane into the periplasm, which then drives the ATP synthase reaction for ATP generation. The protons translocated are
+# are identified as 'PROTON_p' to distinguish them from the protons in the cytoplasm. 
+
+
+Structural()
+
+
+########## HETEROTROPHIC GROWTH ##########
+
+# NADH dehydrogenase   
+"NADH_DH1":
+    1.0 "NADH" + 1.0 "Ubiquinones" + 4.0 "PROTON" -> 1.0 "NAD" + 1.0 "Ubiquinols" + 3.0 "PROTON_p"
+    ~
+
+# NADH dehydrogenase type 2 (no proton pump)
+"NADH_DH2":
+    1.0 "NADH" + 1.0 "Ubiquinones" + 1.0 "PROTON" -> 1.0 "NAD" + 1.0 "Ubiquinols"
+    ~
+    
+# membrane bound formate dehydrogenase - does not act as proton pump so are already in the automated model construction without curation required.
+#"RXN-11237":
+#    "FORMATE" + "Ubiquinones" + "PROTON"->"CARBON-DIOXIDE" + "Ubiquinols"
+#    ~
+
+# succinate dehydrogenase in the TCA cycle - does not act as proton pump so is already in automated model construction without curation required.
+#"SUCCINATE-DEHYDROGENASE-MENAQUINONE-RXN":
+#    "Ubiquinones" + "SUC"->"Ubiquinols" + "FUM"
+#    ~
+
+
+#########################################
+
+
+
+########## AUTOTROPHIC GROWTH ###########
+# MEMBRANE BOUND HYDROGENASE
+"MBH_HYDROGENASE":
+    "HYDROGEN-MOLECULE" + "Ubiquinones" + 2 "PROTON" -> "Ubiquinols" + 2 "PROTON_p"
+    ~
+
+# soluble hydrogenase (SH) 
+"HYDROGENASE_SH_NAD":
+    "NAD" + "HYDROGEN-MOLECULE"->"NADH" + "PROTON"
+    ~
+
+#########################################
+
+
+# complex III
+"1.10.2.2-RXN":
+	1 "Ubiquinols" + 2 "Oxidized-cytochromes" <> 1 "Ubiquinones" + 2 "Reduced-cytochromes" + 2.0 "PROTON_p"
+	~
+
+
+########## AEROBIC GROWTH - TERMINAL OXIDASES ##########
+
+
+# cytochrome oxidase b03
+"QUIN_OXIDASE_b03":
+    0.5 "OXYGEN-MOLECULE" + 4.0 "PROTON" + 1.0 "Ubiquinols" -> 1.0 "WATER" + 1.0 "Ubiquinones" + 4.0 "PROTON_p"
+    ~
+
+# cytochrome oxidase bd
+"QUIN_OXIDASE_bd":
+    0.5 "OXYGEN-MOLECULE" + 2.0 "PROTON" + 1.0 "Ubiquinols" -> 1.0 "WATER" + 1.0 "Ubiquinones" + 2.0 "PROTON_p"
+    ~
+
+# cytochrome oxidae aa3 - cbb3
+"CYTO_OXIDASE_aa3_cbb3":
+    0.5 "OXYGEN-MOLECULE" + 4.0 "PROTON" + 2.0 "Reduced-cytochromes" -> 1.0 "WATER" + 2.0 "Oxidized-cytochromes" + 2.0 "PROTON_p"
+    ~
+
+
+###############################################################
+ 
+
+# pntAB transhydrogenase competes with ATP synthase for protons
+"NADPtranshydrogenase":
+    "NADH" + "NADP" + 2.0 "PROTON_p" -> "NAD" + "NADPH" + 2.0 "PROTON"
+    ~
+
+###################################
+
+
+    
+   
+########## ATP SYNTHASE ##########
+    
+"ATPSynth":
+    "ADP" + "Pi" + 4 "PROTON_p" <> "ATP" + 3 "PROTON" + "WATER"
+    ~
+
+
+#################################
+
+
+
+########## ANAEROBIC GROWTH - DENITIFICATION ##########
+# note that some of the denitrification pathway takes place in the periplasm and thus we use '_p' to denote metabolites
+# that are being produced in this compartment. 
+
+"NITRITE_cp":
+    "NITRATE_p" + "NITRITE" -> "NITRATE" + "NITRITE_p"
+    ~
+
+# PERIPLASMIC NITRATE REDUCTASE - cleans up excess redox energy  - #NapA   
+"RXN0-6369": 
+    "NITRATE_p" + "Ubiquinols"  -> "NITRITE_p" + "WATER" + "Ubiquinones"
+    ~
+    
+# MEMBRANE BOUND NITRATE REDUCTASE - linked to ATP synthesis
+"RXN0-3501":
+    "NITRATE" + 2 "PROTON" + "Ubiquinols" -> "NITRITE" + "WATER" + "Ubiquinones" + 2 "PROTON_p"
+    ~
+        
+"NITRITE-REDUCTASE-CYTOCHROME-RXN":
+    "NITRITE_p" + 2 "Reduced-cytochromes" + 2 "PROTON_p" -> "NITRIC-OXIDE_p" + "WATER" + 2 "Oxidized-cytochromes"
+    ~
+
+"NITRIC-OXIDE-REDUCTASE-RXN":
+    2 "NITRIC-OXIDE_p" + 2 "Reduced-cytochromes" + 2 "PROTON_p" -> "NITROUS-OXIDE_p" + 2 "Oxidized-cytochromes" + "WATER" 
+    ~
+    
+"RXN-12130":
+    2 "Reduced-cytochromes" + 2 "PROTON_p" + "NITROUS-OXIDE_p" -> 2 "Oxidized-cytochromes" + "WATER" + "NITROGEN-MOLECULE_p"
+    ~
+
+
+####################################################
+
+
+
