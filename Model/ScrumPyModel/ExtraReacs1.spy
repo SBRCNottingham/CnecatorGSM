@@ -1,0 +1,574 @@
+Structural()
+# ExtraReacs is used to add reactions that are not in the automated construction but were added during the gap filling stage
+# Gap filling was required to ensure all biomass precursors can be made for both aerobic and anaerobic growth and for all known carbon sources that C. necator
+# is known to grow on
+
+
+
+############ CARBS biosynthesis ###########
+"CARBO":
+    4.0 "UDP-N-ACETYL-D-GLUCOSAMINE" + 1.0 "UDP-N-ACETYL-D-GALACTOSAMINE" -> "CARBS" + 5.0 "UDP"
+    ~
+
+"UDP-N-ACETYLGLUCOSAMINE-4-EPIMERASE-RXN":
+    "UDP-N-ACETYL-D-GLUCOSAMINE" <> "UDP-N-ACETYL-D-GALACTOSAMINE"
+    ~
+#####################################################
+
+ ######### asparagine biosynthesis #############   
+"ASNSYNB-RXN":
+    "GLN" + "L-ASPARTATE" + "ATP" + "WATER"->"PROTON" + "GLT" + "ASN" + "PPI" + "AMP"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+################################################
+
+
+
+################## Glycollate degradation ######################
+"GLYCOLALD-DEHYDROG-RXN":
+    "GLYCOLALDEHYDE" + "NAD" + "WATER" <> "GLYCOLLATE" + "NADH" + 2 "PROTON"
+    ~
+
+###########################################################
+
+    
+################ Ubiquinone biosynthesis ##################
+
+### EC 1.14.13.- gene for C. necator available in KEGG database
+"OCTAPRENYL-METHYL-METHOXY-BENZOQ-OH-RXN":
+    "OCTAPRENYL-METHYL-METHOXY-BENZQ" + "OXYGEN-MOLECULE" + "NADPH" + "PROTON" ->"Demethylated-Ubiquinols" + "WATER" + "NADP"
+    ~  
+
+# EC 2.1.1.201 - 
+"2-OCTAPRENYL-METHOXY-BENZOQ-METH-RXN":
+    "OCTAPRENYL-METHOXY-BENZOQUINONE" + "S-ADENOSYLMETHIONINE"->"PROTON" + "ADENOSYL-HOMO-CYS" + "OCTAPRENYL-METHYL-METHOXY-BENZQ"
+    ~
+    
+# EC 1.14.13.- gene for C. necator available in KEGG (UbiH)
+"2-OCTAPRENYL-6-METHOXYPHENOL-HYDROX-RXN":
+    "2-OCTAPRENYL-6-METHOXYPHENOL" + "OXYGEN-MOLECULE" + "NADPH" + "PROTON"->"OCTAPRENYL-METHOXY-BENZOQUINONE" + "WATER" + "NADP"
+    ~
+
+# EC 2.1.1.222 - gene for C. necator available in KEGG (UbiG)
+"2-OCTAPRENYL-6-OHPHENOL-METHY-RXN":
+    "2-OCTAPRENYL-6-HYDROXYPHENOL" + "S-ADENOSYLMETHIONINE"->"PROTON" + "2-OCTAPRENYL-6-METHOXYPHENOL" + "ADENOSYL-HOMO-CYS"
+    ~
+    
+# no gene found for C. necator but required for ubiquinone biosynthesis
+"2-OCTAPRENYLPHENOL-HYDROX-RXN":
+    "2-OCTAPRENYLPHENOL" + "OXYGEN-MOLECULE" + "NADPH" + "PROTON"->"2-OCTAPRENYL-6-HYDROXYPHENOL" + "WATER" + "NADP"
+    ~
+
+# produce OCTAPRENYL-DIPHOSPHATE for ubiquinone biosynthesis (in Reutro in KEGG)
+"RXN-8992":
+    "FARNESYL-PP" + 5 "DELTA3-ISOPENTENYL-PP"<>"OCTAPRENYL-DIPHOSPHATE" + 5 "PPI"
+    ~
+
+# added to produce GERANYL-PP - available for C. necator H16 in KEGG with gene H16_A3031
+"GPPSYN-RXN":
+    "CPD-4211" + "DELTA3-ISOPENTENYL-PP"<>"GERANYL-PP" + "PPI"
+    ~
+
+##############################################################
+    
+
+    
+
+
+# Required for Lipid A biosynthesis - gene for C. necator available in KEGG databaseFound using KEGG 
+"DARAB5PISOM-RXN":
+    "ARABINOSE-5P"<>"RIBULOSE-5P"
+    ~
+    #REVERSIBLE
+
+# ??? - gene for C. necator available in KEGG database
+#"5.1.3.20-RXN":
+#    "ADP-D-GLYCERO-D-MANNO-HEPTOSE"<>"ADP-L-GLYCERO-D-MANNO-HEPTOSE"
+#    ~
+#    #LEFT-TO-RIGHT
+
+# found in KEGG (no gene in REH) and metacyc
+#"RXN0-4342":
+#    "PROTON" + "D-BETA-D-HEPTOSE-1-P" + "ATP"<>"ADP-D-GLYCERO-D-MANNO-HEPTOSE" + "PPI"
+#    ~
+#    #LEFT-TO-RIGHT
+
+# found in KEGG (no gene in REH) and metacyc
+#"RXN0-4341":
+#    "D-ALPHABETA-D-HEPTOSE-7-PHOSPHATE" + "ATP"<>"PROTON" + "D-BETA-D-HEPTOSE-17-DIPHOSPHATE" + "ADP"
+#    ~
+    #LEFT-TO-RIGHT
+
+
+
+
+# 
+"TRIPHOSPHATASE-RXN":
+    "WATER" + "P3I"->"Pi" + "PPI"
+    ~
+    
+
+
+################ ESSENTIAL ANAEROBIC REACTIONS ###################
+# Note the reaction IDs are the same as the aerobic version, but with the suffix '-AN'
+
+# taken from BRENDA database. 
+"RXN0-1461-AN":
+        "COPROPORPHYRINOGEN_III" + 2 "NADP" ->"PROTOPORPHYRINOGEN" + 2  "CARBON-DIOXIDE" + 2 "NADPH"
+        ~
+    
+"OCTAPRENYL-METHYL-METHOXY-BENZOQ-OH-RXN-AN":
+        2.0 "ATP" + "NAD" + "OCTAPRENYL_METHYL_METHOXY_BENZQ" + 3.0 "WATER" -> 2.0 "ADP" + "Demethylated_Ubiquinols" + "NADH" + 3.0 "PROTON" + 2.0 "Pi"
+        ~
+    
+# takenfrom BIGG models database (ecoli model)
+"2-OCTAPRENYLPHENOL-HYDROX-RXN-AN":
+	2 "ATP" + 1 "2-OCTAPRENYLPHENOL" + 3 "WATER" + "NAD"-> "2-OCTAPRENYL-6-HYDROXYPHENOL" + "NADH" + 3 "PROTON" + 2 "ADP" + 2 "Pi"
+	~
+# taken from BIGG models database	(ecoli model)
+"2-OCTAPRENYL-6-METHOXYPHENOL-HYDROX-RXN-AN":
+	"2-OCTAPRENYL-6-METHOXYPHENOL" + 2 "ATP" + 3 "WATER" + "NAD" -> "OCTAPRENYL-METHOXY-BENZOQUINONE" + 2 "ADP" + "NADH" + 2 "Pi" + 3 "PROTON"
+	~
+
+
+# added for synthesising HS, couldn't grow anaerobically without
+"325-BISPHOSPHATE-NUCLEOTIDASE-RXN":
+    "3-5-ADP" + "WATER"->"Pi" + "AMP"
+    ~
+
+
+"L-ASPARTATE-OXID-RXN-AN":
+	"L-ASPARTATE" + "FUM" -> "SUC" + "IMINOASPARTATE" + "PROTON"
+	~
+
+#########################################################################
+
+
+#"1.17.99.1-RXN":
+#    "CPD-108" + "WATER" + 2 "Oxidized-ferredoxins" <> "4-HYDROXYBENZALDEHYDE" + 2 "Reduced-ferredoxins" + 2 "PROTON"
+#    ~
+
+
+
+#################### CARBON DEGRADATION PATHWAYS #######################
+# gap filling was carried out for carbon degradation pathways where experimental evidence found growth on a particular carbon source
+
+######### Butyrate utilization ############
+"BUTYRATE--COA-LIGASE-RXN":
+    "BUTYRIC-ACID" + "ATP" + "CO-A" -> "BUTYRYL-COA" + "AMP" + "PPI"
+    ~
+
+######## 3-HP utilization ##########
+
+"3HP-COA-transferase":
+    "3-HYDROXY-PROPIONATE" + "ACETYL-COA" <> "ACET" + "3-HYDROXY-PROPIONYL-COA"
+    ~
+
+
+
+
+########### NIACINE degradation - genes in KEGG #################
+"NICOTINATE-DEHYDROGENASE-RXN":
+    "NIACINE" + "WATER" + 2.0 "Oxidized-cytochromes" -> "6-HYDROXY-NICOTINATE" + 2.0 "Reduced-cytochromes" + 2.0 "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-7573":
+    "6-HYDROXY-NICOTINATE" + "NADH" + 2.0  "PROTON" + "OXYGEN-MOLECULE"->"2-5-DIHYDROXYPYRIDINE" + "NAD" + "CARBON-DIOXIDE" + "WATER"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"1.13.11.9-RXN":
+    "2-5-DIHYDROXYPYRIDINE" + "OXYGEN-MOLECULE"->"PROTON" + "CPD-12278"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-11318":
+    "CPD-12278" + "WATER"<>"PROTON" + "MALEAMATE" + "FORMATE"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-646":
+    "MALEAMATE" + "WATER"<>"MALEATE" + "AMMONIUM"
+    ~
+    #LEFT-TO-RIGHT
+
+
+################### added for 4-hydroxyphenylacetate degradation ####################
+"CHMS-DEHYDROGENASE-RXN":
+    "CPD-783" + "NAD" + "WATER"-> 2.0 "PROTON" + "CPD-784" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+# no gene but in 4-hydroxyphenylacetate degradation pathway
+"CARBOXY-OXOHEPT-ENEDIOATE-DECARBOXY-RXN":
+    "PROTON" + "CPD-785"->"CPD-787" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+############# Adipate degradation ###########################
+"ADIPATE-COA-LIGASE-RXN":
+    "ADIPATE" + "CO-A" + "ATP" -> "AMP" + "PPI" + "ADIPATE-COA"
+    ~
+
+"ACYL-COA-DEHYDROGENASE-RXN":
+    "ADIPATE-COA" + "FAD" -> "FADH2" + "CARPCOA"
+    ~
+
+"CARPCOA-ENOYLCOA-HYDRATASE-RXN":
+    "CARPCOA" + "WATER" -> "3-HYDROXYADIPYL-COA"
+    ~
+
+
+
+#  no gene associated in database - may be required for threonine degradation
+#"ALANINE--GLYOXYLATE-AMINOTRANSFERASE-RXN":
+#    "GLYOX" + "L-ALPHA-ALANINE"<>"GLY" + "PYRUVATE"
+#    ~
+#    #REVERSIBLE
+
+
+######### 4-fluorobenzoate degradation ############
+"FLUOROBENZOATE-12-DIOXYGENASE-RXN":
+	"OXYGEN-MOLECULE" + "NADH" + "4-FLUOROBENZOATE" + "PROTON" -> "4-fluorocyclohexadiene-ciscis-12-diol-1-carboxylate" + "NAD"
+	~
+
+"FLUORO4-1.3.1.25-RXN":
+    "4-fluorocyclohexadiene-ciscis-12-diol-1-carboxylate" + "NAD" -> "CPD-19752" + "NADH" + "CARBON-DIOXIDE" + "PROTON"
+    ~
+
+"FLUORO4-1.13.11.1-RXN":
+    "CPD-19752" + "OXYGEN-MOLECULE" -> "3-fluoro-ciscis-muconate"
+    ~
+
+"FLUORO4-5.5.1.1-RXN":
+    "3-fluoro-ciscis-muconate" -> "4-Fluoromuconolactone"
+    ~
+
+"FLUORO4-3.1.1.45-RXN":
+    "4-Fluoromuconolactone" + "WATER" -> "CPD-294" + "fluoride"
+    ~
+
+"RXN-11761":
+    "CPD-12709" + "WATER"<>"GLYCOLLATE" + "fluoride" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-11746":
+    "CPD-12708" + "WATER" + "NAD"<>"CPD-12709" + "NADH" + 2  "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-11747":
+    "CPD-12708" + "THR"<>"ACETALD" + "CPD-12710"
+    ~
+    #LEFT-TO-RIGHT
+
+
+#############################################################
+
+
+
+
+
+
+
+
+# ##### TCA cycle
+"RXN-7716":
+    "Oxo-glutarate-dehydrogenase-DH-lipoyl" + "NAD"<>"Oxo-glutarate-dehydrogenase-lipoyl" + "NADH" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN0-1147":
+    "SUC-COA" + "Oxo-glutarate-dehydrogenase-DH-lipoyl"<-"CO-A" + "Oxo-glutarate-dehydro-suc-DH-lipoyl"
+    ~
+    #RIGHT-TO-LEFT
+
+
+
+
+
+##### gene H16_A3631 - wide specificity - taken from kegg
+"R01036":
+    "GLYCEROL" + "NAD" <- "GLYCERALD" + "NADH" + "PROTON"
+    ~
+
+"R01041":
+    "GLYCEROL" + "NADP" <- "GLYCERALD" + "NADPH" + "PROTON"
+    ~
+
+
+
+#### H16_A3186 assoiated but missing from database
+"RXN-12078-(NAD)":
+	1 "NAD" + 1 "GALACTITOL" <> 1 "NADH" + 1 "GALACTOSE" + 1 "PROTON"
+	~
+
+
+##
+### in kegg - added for completeness - CPD-358 == Lactaldehyde
+##"R02531":
+##    "NADP" + "CPD-358"  <> "NADPH" + "PROTON" + "METHYL-GLYOXAL"
+##    ~
+##
+### kegg - added for completeness - CPD-8891 == Propane-1,2-diol
+##"R02819":
+##    "NADP" + "CPD-8891" <> "NADPH" + "PROTON" + "CPD-358"
+##    ~
+
+#
+"RXN-969":
+    "GLYCOLLATE" + "OXYGEN-MOLECULE"->"GLYOX" + "HYDROGEN-PEROXIDE"
+    ~
+
+
+
+
+######## CENTRAL CARBON METABOLISM ###############
+
+
+# Anapolorosis reaction - added to model from blast report (Eval = 0.0, identity = 63%, coverage = 99% for NADP-dependent malic enzyme)
+"OXALODECARB-RXN":
+    "OXALACETIC_ACID" + "PROTON" -> "PYRUVATE" + "CARBON-DIOXIDE"
+    ~
+
+# same as PEPCARBOX-RXN but with CO2 instead of HCO3 like the version in E. coli model
+"PEPCARBOX-RXN2":
+	"Pi" + "OXALACETIC_ACID" + "PROTON" <- "PHOSPHO-ENOL-PYRUVATE" + "CARBON-DIOXIDE" + "WATER"
+	~
+
+###################################################
+
+# added because has the bifunctional gene H16_A3009
+"ASPARTATE-4-DECARBOXYLASE-RXN":
+    "PROTON" + "L-ASPARTATE"->"CARBON-DIOXIDE" + "L-ALPHA-ALANINE"
+    ~
+
+# added from homology search for methionine pathway
+"HOMSUCTRAN-RXN":
+    "HOMO-SER" + "SUC-COA"<>"O-SUCCINYL-L-HOMOSERINE" + "CO-A"
+    ~
+    #LEFT-TO-RIGHT
+
+# added from homology search #### maybe delete??
+#"4.2.1.43-RXN":
+#    "CPD-1134"<>"WATER" + "CPD-654"
+#    ~
+#    #LEFT-TO-RIGHT
+
+
+#### UMP biosynthesis
+"DIHYDROOROTATE-DEHYDROGENASE-RXN":
+    "Ubiquinones" + "DI-H-OROTATE"<>"Ubiquinols" + "OROTATE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+
+##### 6_CHQ degradation pathway ##################
+"CHLOROMALERED-RXN-(NAD)":
+    "2-CHLOROMALEYLACETATE" + "NADH" + "PROTON" ->"CPD-19731" + "NAD"
+    ~
+    #LEFT-TO-RIGHT
+
+"CHLOROMALERED-RXN-(NADP)":
+    "2-CHLOROMALEYLACETATE" + "NADPH" + "PROTON" ->"CPD-19731" + "NADP"
+    ~
+    #LEFT-TO-RIGHT
+
+# spontaneous
+"RXN-18362":
+    "CPD-19731" -> "CPD-294" + "PROTON" + "CL-"
+    ~
+
+##################################################
+
+
+####### 2-hydroxybutyrate degradation ####
+"2-hydroxybutyrate-NAD-oxidoreductase-RXN":
+    "2-HYDROXYBUTANOIC-ACID" + "NAD" <> "2-OXOBUTANOATE" + "NADH" + "PROTON"
+    ~
+
+##################################################
+
+###### Kyrunine degradation
+"2.6.1.7-RXN":
+    "CPD-14736" + "2-KETOGLUTARATE"<>"GLT" + "CPD-476"
+    ~
+    #REVERSIBLE
+
+#spontaneous - but high gibbs energy in forward direction so may not grow on kynurenate??
+"RXN-10720":
+    "CPD-476"<>"KYNURENATE" + "WATER" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+
+#################################################
+
+
+####################### Lysine biosynthesis  - nad version available as well
+"RXN-14014-NAD":
+	1 "WATER" + 1 "NAD" + 1 "DELTA1-PIPERIDEINE-2-6-DICARBOXYLATE" <- 1 "NADH" + 1 "PROTON" + 1 "CPD-14443"
+	~
+###########################################################
+
+
+######## Aspartate dehdrogenase - H16_B0736
+"1.4.1.21-RXN-(NAD)":
+	1 "WATER" + 1 "L-ASPARTATE" + 1 "NAD" -> 1 "NADH" + 1 "OXALACETIC_ACID" + 1 "PROTON" + 1 "AMMONIUM"
+	~
+###############################################
+
+######## genes available but missing from database ################# but allows for aminobutanoate degradation which is incorrect
+"RXN0-5293-(NAD)":
+	1 "WATER" + 1 "NAD" + 1 "SUCC-S-ALD" <> 1 "NADH" + 1 "SUC" + 2 "PROTON"
+	~
+################################################################
+
+
+########## Formaldehyde detoxification ################
+"RXN-2962-(NAD)":
+	1 "S-HYDROXYMETHYLGLUTATHIONE" + 1 "NAD" <> 1 "NADH" + 1 "PROTON" + 1 "CPD-548"
+	~
+
+########################################################
+
+##################### Gene for benzaldehyde dehydrogenase associated. Reaction required for 4-hydroxybenzoate degradation
+#"HYDROXYBENZALDEHYDE-OXIDATION-NAD-RXN":
+#    "4-HYDROXYBENZALDEHYDE" + "NAD" + "WATER"<>"4-hydroxybenzoate" + "NADH" + 2  "PROTON"
+#   ~
+#   #LEFT-TO-RIGHT
+
+
+###### Phenylacetate degradation ################
+
+
+#"RXN-2425": # updated database had reaction RXN0-6513 that does the same reaction
+#    "TRANS-23-DEHYDROADIPYL-COA" + "WATER"->"3-HYDROXYADIPYL-COA"
+#    ~
+#    #LEFT-TO-RIGHT
+#################################################
+
+
+
+# gene H16_B0449 - dehydrogenase for isoleucine as well
+"ISOLEUCINE-DEHYDROGENASE-RXN":
+    "ILE" + "NAD" + "WATER"<>"PROTON" + "AMMONIUM" + "NADH" + "2-KETO-3-METHYL-VALERATE"
+    ~
+
+
+##### 3-hydroxybenzoate degradation ###########
+"3-HYDROXYBENZOATE-6-MONOOXYGENASE-RXN":
+    "3-HYDROXYBENZOATE" + "OXYGEN-MOLECULE" + "NADH" + "PROTON"->"CPD-633" + "WATER" + "NAD"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+##############################################
+
+
+
+# bifunctional acnB enzyme - propionate degradation
+"4.2.1.99-RXN":
+    "CPD-618"<-"CPD-1136" + "WATER"
+    ~
+    #RIGHT-TO-LEFT
+####################################################
+
+
+
+####### NAD salvage pathway #######
+"NMNNUCLEOSID-RXN":
+    "NICOTINAMIDE_NUCLEOTIDE" + "WATER"->"RIBOSE-5P" + "NIACINAMIDE" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+####################################
+
+    
+####### PEPTIDOGLYCAN BIOSYNTHESIS #######
+
+"2.4.1.129-RXN":
+    2.0 "C6" -> "UNDECAPRENYL-DIPHOSPHATE" + "LIPIDII"
+    ~
+
+"3.4.16.4-RXN":
+    "LIPIDII" + "WATER" -> 2.0 "D-ALANINE" + "PEPTIDOGLYCAN"
+    ~
+##############################################
+
+
+#### maybe remove later if not required ??
+"RXN-7790":
+    "2-OXOBUTANOATE" + "CO-A" + "NAD" -> "PROPIONYL-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+
+### Essential for nucleotides biosynthesis 
+"ADENOSINE-KINASE-RXN":
+    "ADENOSINE" + "ATP" -> "AMP" + "ADP" + "PROTON"
+    ~
+
+
+####### FADH transferring - gene available and required for proline degradation (H16_A1324)
+"RXN66-550":
+   "FADH2" + "Ubiquinones" -> "FAD" + "Ubiquinols"
+    ~
+
+########################
+
+
+##### missing valine dehydrogenase (H16_B0449) - the gene also acts on valine (KEGG)
+"RXN-13184":
+    "VAL" + "NAD" + "WATER" <> "AMMONIUM" + "2-KETO-ISOVALERATE" + "NADH" + "PROTON"
+    ~
+
+
+######## Lumped fatty acid oxidation for carbon sources known in vivo for cnecator to grow on #######
+"C14-ox-RXN":
+    "ATP" + 7.0 "CO-A" + "CPD-7836" + 6.0 "FAD" + 6.0 "NAD" + 6.0 "WATER" -> 7.0 "ACETYL-COA" + "AMP" + 6.0 "FADH2" + 6.0 "NADH" + "PPI" + 5.0 "PROTON"
+    ~
+
+
+"C16-ox-RXN":
+    "ATP" + 8.0 "CO-A" + "PALMITATE" + 7.0 "FAD" + 7.0 "NAD" + 7.0 "WATER" -> 8.0 "ACETYL-COA" + "AMP" + 7.0 "FADH2" + 7.0 "NADH" + "PPI" + 6.0 "PROTON"
+    ~
+
+"C181-ox-RXN":
+    "ATP" + 9.0 "CO-A" + "OLEATE-CPD" + 8.0 "FAD" + 8.0 "NAD" + 8.0 "WATER" -> 9.0 "ACETYL-COA" + "AMP" + 8.0 "FADH2" + 8.0 "NADH" + "PPI" + 7.0 "PROTON"
+    ~
+
+#### Required for heme biosynthesis ####
+"GLURS-RXN":
+    "ATP" + "GLT" + "GLT-tRNAs" -> "AMP" + "Charged-GLT-tRNAs" + "PPI"
+    ~
+
+"GLUTRNAREDUCT-RXN":
+    "Charged-GLT-tRNAs" + "NADPH" + "PROTON" -> "GLT-tRNAs" + "GLUTAMATE-1-SEMIALDEHYDE" + "NADP"
+    ~
+
+    ###################################
+
+#### Other
+
+"RXN-12019":
+    "APS" + "Red-Thioredoxin" -> "AMP" + "Ox-Thioredoxin" + 2.0 "PROTON" + "SO3"
+    ~
+
+
+"4.2.1.43-RXN":
+    "CPD-1134" <> "CPD-654" + "WATER"
+    ~
+
+
+
+"1.5.1.20-RXN-NADP":
+	1.0 "NADP" + 1.0 "5-METHYL-THF" <- 1.0 "METHYLENE-THF" + 1.0 "NADPH" + 1.0 "PROTON"
+	~
+
+"RXN-21483":
+    "PROTOPORPHYRINOGEN" + 3.0 "Ubiquinones" -> "PROTOPORPHYRIN_IX" + 3.0 "Ubiquinols"
+    ~

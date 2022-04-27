@@ -1,0 +1,442 @@
+Structural()
+
+    
+#### Fructose transport ####
+FRU_tx:
+    "x_FRU" <> "FRU"
+    ~
+
+# PTS transporter of fructose
+FRUPTS:
+    "FRU" + "PHOSPHO-ENOL-PYRUVATE" -> "FRUCTOSE-6P" + "PYRUVATE"
+    ~
+
+# ABC transporter of fructose
+FRUABC:
+    "FRU" + "ATP" -> "BETA-D-FRUCTOSE" + "ADP" + "Pi"
+    ~
+
+
+
+###############################
+
+#### GAS transporters ####
+
+"CO2_tx":
+    1.0 "x_CO2" <> 1.0 "CARBON-DIOXIDE"
+    ~
+
+"NITRITE_tx":
+    "x_NITRITE" <> "NITRITE_p"
+    ~
+
+    
+"NITRATE_tx":
+    "x_NITRATE" <> "NITRATE_p"
+    ~
+
+"NITRATE_p_tx":
+    "NITRATE_p" <> "NITRATE"
+    ~
+
+"NO_tx":
+    "x_NITRIC-OXIDE" <> "NITRIC-OXIDE"
+    ~
+
+
+"NITROGEN_tx":
+    "x_NITROGEN-MOLECULE" <> "NITROGEN-MOLECULE_p"
+    ~
+
+
+
+    
+##### MINIMAL MEDIA TRANSPORTERS #####
+
+"NH4_tx":
+    1.0 "x_NH4" <> 1.0 "AMMONIUM"
+    ~
+
+"O2_tx":
+    1.0 "x_O2" <> 1.0 "OXYGEN-MOLECULE"
+    ~    
+
+"H2_tx":
+    1.0 "x_H2" <> 1.0 "HYDROGEN-MOLECULE"
+    ~
+
+"SULFATE_tx":
+	"x_SULFATE"  <> "SULFATE" 
+	~
+
+"Pi_tx":
+    "x_Pi" <> "Pi"
+    ~
+
+"WATER_tx":
+    1.0 "x_WATER" <> 1.0 "WATER"
+    ~
+
+"PROTON_tx":
+    1.0 "x_PROTON" <> 1.0 "PROTON"
+    ~
+
+"FE2_tx":
+    "x_FE+2" <> "FE+2"
+    ~
+
+"CL_tx":
+    "x_CL_" <> "CL_"
+    ~
+
+"MG+2_tx":
+    "x_MG+2" <> "MG+2"
+    ~
+
+
+"CH33ADO_tx":
+    "x_CH33ADO" <> "CH33ADO"
+    ~
+
+"Fluoride_tx":  
+    "x_Fluoride" <> "Fluoride"
+    ~
+    
+################################################
+
+# added drain reaction for small amount of CO released for thiamine synthesis
+"CO_tx":
+    "x_CO" <> "CARBON-MONOXIDE"
+    ~
+
+###### SECRETION METABOLITES AS DEFINED FOR ECOLI IN WEAVER ET AL (2014).
+
+##### Fermentation products #####
+
+"ACET_tx":
+    "x_ACET" <> "ACET"
+    ~
+
+"BUTYRATE_tx":
+    "x_BUTYRATE-ACID" <> "BUTYRIC-ACID"
+    ~
+
+"PROPIONATE_tx":
+    "x_PROPIONATE" <> "PROPIONATE"
+    ~
+
+"FORMATE_tx":
+    "x_FORMATE" <> "FORMATE"
+    ~
+
+"SUC_tx":
+    "x_SUC" <> "SUC"
+    ~
+
+"D-LACTATE_tx":
+    "x_D-LACTATE" <> "D-LACTATE"
+    ~
+
+"L-LACTATE_tx":
+    "x_L-LACTATE" <> "L-LACTATE"
+    ~
+
+"ETOH_tx":
+    "x_ETOH" <> "ETOH"
+    ~
+
+"PYRUVATE_tx":
+    "x_PYRUVATE" <> "PYRUVATE"
+    ~
+
+#### PHB storage reactions #####
+
+"PHB_tx":
+    "x_PHB" <> "Poly-Hydroxybutyrate"
+    ~
+
+##############################
+
+"GLYCEROL_tx":
+    "x_GLYCEROL" <> "GLYCEROL"
+    ~
+
+
+############ amino acid secretion ################
+"VAL_tx":
+    "x_VAL" <> "VAL"
+    ~
+
+"TYR_tx":
+    "x_TYR" <> "TYR"
+    ~
+
+"TRP_tx":
+    "x_TRP" <> "TRP"
+    ~
+
+"THR_tx":
+    "x_THR" <> "THR"
+    ~
+
+"SER_tx":
+    "x_SER" <> "SER"
+    ~
+
+"PRO_tx":
+    "x_PRO" <> "PRO"
+    ~
+
+"PHE_tx":
+    "x_PHE" <> "PHE"
+    ~
+
+"MET_tx":
+    "x_MET" <> "MET"
+    ~
+
+"LYS_tx":
+    "x_LYS" <> "LYS"
+    ~
+
+"LEU_tx":
+    "x_LEU" <> "LEU"
+    ~
+
+
+"HIS_tx":
+    "x_HIS" <> "HIS"
+    ~
+
+"GLY_tx":
+    "x_GLY" <> "GLY"
+    ~
+
+"GLT_tx":
+    "x_GLT" <> "GLT"
+    ~
+
+"GLN_tx":
+    "x_GLN" <> "GLN"
+    ~
+
+"CYS_tx":
+    "x_CYS" <> "CYS"
+    ~
+
+"L-ASPARTATE_tx":
+    "x_L-ASPARTATE" <> "L-ASPARTATE"
+    ~
+
+"ARG_tx":
+    "x_ARG" <> "ARG"
+    ~
+
+"L-ALPHA-ALANINE_tx":
+    "x_L-ALPHA-ALANINE" <> "L-ALPHA-ALANINE"
+    ~
+
+"ILEU_tx":
+    "x_ILEU" <> "ILEU"
+    ~
+
+"ASN_tx":
+    "x_ASN" <> "ASN"
+    ~
+
+###############################################
+
+
+###### Purine and pyrimidine metabolites ##########
+    
+"THYMINE_tx":
+    "x_THYMINE" <> "THYMINE"
+    ~
+
+"XANTHINE_tx":
+    "x_XANTHINE" <> "XANTHINE"
+    ~
+
+"URACIL_tx":
+    "x_URACIL" <> "URACIL"
+    ~
+
+"HYPOXANTHINE_tx":
+    "x_HYPOXANTHINE" <> "HYPOXANTHINE"
+    ~
+    
+###############################
+
+"D-ALANINE_tx":
+    "x_D-ALANINE" <> "D-ALANiNE"
+    ~
+
+"UREA_tx":
+    "x_UREA" <> "UREA"
+    ~
+
+#### Alternative carbon sources ####
+
+
+
+
+"MAL_tx":
+    "x_MAL" -> "MAL"
+    ~
+
+"2-PG_tx":
+    "x_2-PG" -> "2-PG"
+    ~
+
+"3-HYDROXYBENZOATE_tx":
+    "x_3-HYDROXYBENZOATE" -> "3-HYDROXYBENZOATE"
+    ~
+
+
+"CPD-335_tx":
+    "x_CPD-335" -> "CPD-335"
+    ~
+
+"G3P_tx":
+    "x_G3P" -> "G3P"
+    ~
+
+"CPD-108_tx":
+    "x_CPD-108" -> "CPD-108"
+    ~
+
+"4-FLUOROBENZOATE_tx":
+    "x_4-FLUOROBENZOATE" -> "4-FLUOROBENZOATE"
+    ~
+
+"4-hydroxybenzoate_tx":
+    "x_4-hydroxybenzoate" -> "4-hydroxybenzoate"
+    ~
+
+
+"6-CHQ_tx":
+    "x_6-CHQ" -> "6-CHQ"
+    ~
+
+"ADIPATE_tx":
+    "x_ADIPATE" -> "ADIPATE"
+    ~
+
+"2-OXOBUTANOATE_tx":
+    "x_2-OXOBUTANOATE" -> "2-OXOBUTANOATE"
+    ~
+
+
+"ANTHRANILATE_tx":
+    "x_ANTHRANILATE" -> "ANTHRANILATE"
+    ~
+
+"BENZOATE_tx":
+    "x_BENZOATE" -> "BENZOATE"
+    ~
+
+"PHENYLGLYOXYLATE_tx":
+    "x_PHENYLGLYOXYLATE" -> "PHENYLGLYOXYLATE"
+    ~
+
+"BENZALDEHYDE_tx":
+    "x_BENZALDEHYDE" -> "BENZALDEHYDE"
+    ~
+
+"BIPHENYL-23-DIOL_tx":
+    "x_BIPHENYL-23-DIOL" -> "BIPHENYL-23-DIOL"
+    ~
+
+"CATECHOL_tx":
+    "x_CATECHOL" -> "CATECHOL"
+    ~
+
+"CIS-CIS-MUCONATE_tx":
+    "x_CIS-CIS-MUCONATE" -> "CIS-CIS-MUCONATE"
+    ~
+
+"FUMERATE_tx":
+    "x_FUM" -> "FUM"
+    ~
+
+"Gluconate_tx":	
+    "x_GLUCONATE" ->  "GLUCONATE"
+    ~
+
+"CITRATE_tx":
+    "x_CIT" -> "CIT"
+    ~
+
+"4-HYDROXY-BUTYRATE_tx":
+    "x_4-HYDROXY-BUTYRATE" -> "4-HYDROXY-BUTYRATE"
+    ~
+
+"GENTISATE_tx":
+    "x_GENTISATE" -> "CPD-633"
+    ~
+
+"GLYCOLLATE_tx":
+    "x_GLYCOLLATE" -> "GLYCOLLATE"
+    ~
+
+
+"GLYOX_tx":
+    "x_GLYOX" -> "GLYOX"
+    ~
+
+"KYNURENINE_tx":
+    "x_CPD-14736" -> "CPD-14736"
+    ~
+
+
+"THREO-DS-ISO-CITRATE_tx":
+    "x_THREO-DS-ISO-CITRATE" -> "THREO-DS-ISO-CITRATE"
+    ~
+
+
+"MUCONOLACTONE_tx":
+    "x_CPD-741" -> "CPD-741"
+    ~
+
+"Myristate_tx":
+    "x_CPD-7836" -> "Myristate"
+    ~
+
+
+"NIACINE_tx":
+    "x_NIACINE" -> "NIACINE"
+    ~
+
+"OLEATE-CPD_tx":
+    "x_OLEATE-CPD" -> "OLEATE-CPD"
+    ~
+
+"PALMITATE_tx":
+    "x_PALMITATE" -> "PALMITATE"
+    ~
+
+"Phenol_tx":
+    "x_PHENOL" -> "PHENOL"
+    ~
+
+"PHENYLACETATE_tx":
+    "x_PHENYLACETATE" -> "PHENYLACETATE"
+    ~
+
+"4-HYDROXYPHENYLACETATE_tx":
+    "x_4-HYDROXYPHENYLACETATE" -> "4-HYDROXYPHENYLACETATE"
+    ~
+
+"3-4-DIHYDROXYBENZOATE_tx":
+    "x_3-4-DIHYDROXYBENZOATE" <> "3-4-DIHYDROXYBENZOATE"
+    ~
+
+"UROCANATE_tx":
+    "x_UROCANATE" -> "UROCANATE"
+    ~
+
+"Acetoin_tx":
+    "x_ACETOIN" <> "ACETOIN"
+    ~
+
+
