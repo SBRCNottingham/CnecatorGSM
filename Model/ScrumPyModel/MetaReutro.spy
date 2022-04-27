@@ -13,16 +13,16 @@ DeQuote()
 #External("PROTON", "WATER")
 
 
-Include(AutoReutro21_2.spy,
-	PhospholipidsBiosynthesis.spy,
-	BiomassTrReacs.spy, # use when testing biomass precursors or allowing variance in biomass composition
-        LPS_unlumped.spy,
+Include(AutoReutro.spy,
+	PHL.spy,
+	#BiomassTrReacs.spy, # use when testing biomass precursors or allowing variance in biomass composition
+        LPS.spy,
         FA_unlumped.spy,
-	ExtraReacs1.spy,
+	ExtraReacs.spy,
 	ETC.spy,
-        transporters_simple2.spy,
+        Transporters.spy,
         #Carbon_sources.spy, # use instead of 'transporters_simple2.spy' when testing enzyme subsets or testing growth on feedstocks
-	BiomassReactionATPM.spy
+	Biomass.spy
 	)
 
 
